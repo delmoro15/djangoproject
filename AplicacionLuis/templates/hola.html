@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Familiares</title>
+</head>
+<body>
+    <p> Hola Mundo</p> 
+
+    <ul>
+        <li> hemos creado al familiar {{nombre1}} {{ apellido1 }}, que actualmente tiene {{edad1}} años de edad</li>
+        <li> hemos creado al familiar {{nombre2}} {{ apellido2 }}, que actualmente tiene {{edad2}} años de edad</li>
+        <li> hemos creado al familiar {{nombre3}} {{ apellido3 }}, que actualmente tiene {{edad3}} años de edad</li>
+    </ul>
+
+    <h3>Formulario Cursos</h3>
+    <form action="inicio.html" method="post" > {% csrf_token  %}
+    <p> Nombre <input type ="text" name="nombre"> </p>
+    <p> Comision <input type ="number" name="comision"> </p>
+    <input type="submit" value="Guardar">
+    </form>
+
+    <br>
+    <br>
+    <br>
+
+    {% for valor in total %}
+
+    <ol>
+        <li>{{valor.nombre}}</li>
+    </ol>
+
+    {% endfor %}
+</body>
+</html>

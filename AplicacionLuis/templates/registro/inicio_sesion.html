@@ -1,0 +1,16 @@
+{% extends "inicio.html" %}
+{% block titulo %} <h1>Crear usuario<span>.</span></h1> {% endblock %}
+{{mensaje}}
+{% block Acerca %}
+<br>
+<div class="container section-header">
+    <h1> Crear estudiante </h1>
+<div class="section-header">
+<form  action="" method="post" > {% csrf_token  %}
+    <button type="submit" class="btn-getstarted scrollto"> Inicia Sesion</button>
+    </form>
+
+</div>
+</div>
+
+{% endblock %}
