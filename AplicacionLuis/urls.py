@@ -5,5 +5,4 @@ from AplicacionLuis.views import *
 from django.urls import include, path
 
 urlpatterns = [
-    path("hola/", hola)
     ]

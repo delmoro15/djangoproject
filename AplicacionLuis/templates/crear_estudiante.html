@@ -1,5 +1,5 @@
 {% extends "inicio.html" %}
-{% block titulo %} <h1>Crear Curso<span>.</span></h1> {% endblock %}
+{% block titulo %} <h1>Crear Estudiantes<span>.</span></h1> {% endblock %}
 
 {%block menu %} 
 <li class="dropdown"><a href="./inicio.html"><span>Inicio</span> <i class="bi"></i></a>
@@ -25,14 +25,15 @@
 
 <br>
 <div class="container section-header" id="about2">
-    <h1> Crear curso </h1>
+    <h1> Crear estudiantes </h1>
 <div class="section-header">
 <form  action= "" method="post" > {% csrf_token  %}
     <table >
 
         {{form1.as_table}}
+        
     </table>
-    <input type="submit" value="Enviar" class="d-flex align-items-center"> 
+    <input type="submit" value="Enviar" class="d-flex align-items-center" id="BotonAlerta"> 
     </form>
 
 </div>

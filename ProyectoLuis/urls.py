@@ -21,7 +21,12 @@ from django.urls import include, path
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('', familiares),
-    path('crear_curso.html', crear_curso),
+    path('inicio.html', inicio),
+    path('crear_curso.html', crear_curso,name="CrearCurso"),
     path('aplicacion_luis/', include('AplicacionLuis.urls')),
-    path('registro/inicio_sesion.html',iniciar_sesion)    ]
+    path('registro/inicio_sesion.html',iniciar_sesion) ,
+    path('crear_estudiante.html', crear_estudiantes,name="CrearEstudiantes"),
+    path('ver_curso.html', ver_cursos),
+    path('ver_estudiante.html', ver_estudiantes),
+    path('', inicio)]
+    

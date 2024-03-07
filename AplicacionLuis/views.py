@@ -6,38 +6,66 @@ from django.views.generic import ListView
 from django.views.generic.edit import CreateView, UpdateView, DeleteView
 from django.contrib.auth.forms import AuthenticationForm
 from django.contrib.auth import authenticate,login
-def familiares (request):
-    
-    familiar1= Familiares(nombre= "Luis", apellido= "Lopez Lopez", edad= 28)
-    familiar1.save()
 
-    familiar2= Familiares(nombre= "Pedro", apellido= "Lopez Obrador", edad= 14)
-    familiar2.save()
+def inicio (request):
 
-    familiar3= Familiares(nombre= "Ramon", apellido= "Lopez Cantero", edad= 24)
-    familiar3.save()
+    return render(request, "inicio.html")
 
-    info = {"nombre1": familiar1.nombre, "nombre2": familiar2.nombre,"nombre3": familiar3.nombre, "apellido1": familiar1.apellido, "apellido2": familiar2.apellido, "apellido3": familiar3.apellido, "edad1": familiar1.edad, "edad2": familiar2.edad, "edad3": familiar3.edad }
-    return render(request, "inicio.html", info)
-
+#cursos
 
 def crear_curso (request):
 
     if request.method == "POST":
 
-        curso= Curso(nombre=["nombre"], comision=["comision"])
-        curso.save()
-        return render(request, "crear_curso.html")
+        formulario1= CursoFormulario(request.POST)
+
+        if formulario1.is_valid():
+            info= formulario1.cleaned_data
+            curso = Curso(nombre=info["curso"], comision=info["comision"])
+            curso.save()
+            return render(request, "inicio.html")
     
-    return render(request, "index.html")
+        return render(request, "crear_curso.html")
+    else:
+        formulario1= CursoFormulario()
 
-def hola (request):
+    return render(request, "crear_curso.html",{"form1":formulario1})
 
-    todos_familiares = Familiares.objects.all()
+def ver_cursos (request):
 
-    return render(request, "hola.html", {"total":todos_familiares})
+    cursos= Curso.objects.all()
+    contexto = {"cursos":cursos}
+    
+    return render(request, "ver_curso.html", contexto)
 
-#iniciar sesion
+#estudiantes:
+
+def crear_estudiantes (request):
+
+    if request.method == "POST":
+
+        formulario1= EstudiantesFormulario(request.POST)
+
+        if formulario1.is_valid():
+            info= formulario1.cleaned_data
+            estudiante = Estudiantes(nombre=info["nombre"], apellido=info["apellido"],email=info["email"])
+            estudiante.save()
+            return render(request, "inicio.html")
+    
+        return render(request, "crear_estudiante.html")
+    else:
+        formulario1= EstudiantesFormulario()
+
+    return render(request, "crear_estudiante.html",{"form1":formulario1})
+
+def ver_estudiantes (request):
+    Estudiantes1= Estudiantes.objects.all()
+    contexto = {"estudiantes":Estudiantes1}
+    
+    return render(request, "ver_estudiante.html", contexto)
+
+
+#iniciar sesion falta terminar!!
 
 def iniciar_sesion(request):
 

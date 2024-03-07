@@ -47,22 +47,26 @@
 
         <!-- El block sirve para que puedan hacer cambios en ese block de codigo en las paginas herederas de inicio.html .-->
       </a>
-
+      
       <nav id="navbar" class="navbar">
         <ul>
-
+          {%block menu %} 
           <li class="dropdown"><a href="#"><span>Inicio</span> <i class="bi"></i></a>
           </li>
 
           <li><a class="nav-link scrollto" href="index.html#about">Acerca </a></li>
           <li><a class="nav-link scrollto" href="index.html#team">Equipo</a></li>
           <li><a class="nav-link scrollto" href="index.html#contact">Contacto</a></li>
+          <li><a class="nav-link scrollto" href="./crear_curso.html#about2">Crear Cursos</a></li>
+          <li><a class="nav-link scrollto" href="./ver_curso.html#about3">Ver Cursos</a></li>
+          <li><a class="nav-link scrollto" href="./crear_estudiante.html">Crear estudiantes</a></li>
+          <li><a class="nav-link scrollto" href="./ver_estudiante.html">Ver estudiantes</a></li>
         </ul>
         <i class="bi bi-list mobile-nav-toggle d-none"></i>
       </nav><!-- .navbar -->
 
-      <a class="btn-getstarted scrollto" href="index.html#about">Inicio de recorrido</a>
-
+      <a class="btn-getstarted scrollto" href="index.html#about" id= "boton-alerta">Inicio de recorrido</a>
+      {% endblock %}
     </div>
   </header><!-- termina el Header -->
 
